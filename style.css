@@ -1,0 +1,251 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 200px auto;
+}
+
+header {
+    grid-column: span 2;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+.container {
+    padding: 20px;
+}
+
+#car-item-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.car-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.car-item img {
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.car-item h2 {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.car-item:hover {
+    transform: scale(1.05);
+}
+
+.button-contact {
+    background-color: #4CAF50; /* Зеленый */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.expanded-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: fadeIn 0.5s ease;
+}
+
+.expanded-image img {
+    max-width: 80%;
+    max-height: 80%;
+    position: relative;
+}
+
+.close-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 24px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.modal {
+    display: none; /* Начально модальное окно скрыто */
+    position: fixed; /* Позиционируем модальное окно относительно окна браузера */
+    z-index: 1000; /* Выше всех других элементов */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Разрешаем прокрутку страницы при необходимости */
+    background-color: rgba(0, 0, 0, 0.7); /* Черный полупрозрачный фон */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: 10px; /* Скругление углов */
+    display: flex;
+    align-items: center; /* Выравнивание содержимого по центру */
+    animation: fadeInModal 0.75s ease; /* Анимация плавного появления */
+}
+
+.car-details {
+    flex: 1; /* Основное содержимое занимает всю доступную ширину */
+}
+
+.car-image-container {
+    flex: 1; /* Фото занимает всю доступную ширину */
+    display: flex;
+    justify-content: center; /* Выравнивание фото по центру по горизонтали */
+    align-items: center; /* Выравнивание фото по центру по вертикали */
+}
+
+.car-image-container img {
+    max-height: 100%; /* Фото занимает всю доступную высоту */
+    max-width: 100%; /* Фото не превышает размеры окна */
+    object-fit: contain; /* Фото сохраняет пропорции и вмещается полностью */
+}
+
+@keyframes fadeInModal {
+    from {
+        opacity: 0;
+        transform: translateY(-25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fadeOutModal {
+    animation: fadeOutModal 0.5s ease; /* Анимация плавного исчезновения */
+}
+
+@keyframes fadeOutModal {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+footer {
+    grid-column: span 2;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+.sidebar {
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.filter input[type="text"],
+.filter select {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.filter button {
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+button[type="submit"] {
+    width: 100%;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
